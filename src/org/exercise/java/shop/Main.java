@@ -18,5 +18,13 @@ public class Main {
         System.out.println(samsung.getDimensioni());
         System.out.println(samsung.getSmart());
 
+        Cuffie logitech = new Cuffie("Logitech G432", "Cuffie con riduzione del rumore", 125f, "nere e blu", false);
+
+        System.out.println(logitech.getNomeEsteso());
+        System.out.println(logitech.getWireless());
+        System.out.println(logitech.getColore());
+        logitech.setColore("bianche e rosse");
+        System.out.println(logitech.getColore());
+
     }
 }

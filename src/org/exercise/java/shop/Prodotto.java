@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class Prodotto {
 
-    private int codice;
-    private String nome;
-    private String descrizione;
-    private float prezzo;
-    private static int iva = 22;
+    protected int codice;
+    protected String nome;
+    protected String descrizione;
+    protected float prezzo;
+    protected static int iva = 22;
 
     public Prodotto(String nome, String descrizione, float prezzo) {
         Random rand = new Random();

@@ -10,5 +10,13 @@ public class Main {
         System.out.println(onePlus.getMemoria());
         System.out.println(onePlus.getDescrizione());
 
+        Televisore samsung = new Televisore("Samsung ultra potente 2k25", "Alta qualità sempre!", 875f, "32 pollici",
+                true);
+
+        System.out.println(samsung.getPrezzoConIva());
+        samsung.setDimensioni("46 pollici");
+        System.out.println(samsung.getDimensioni());
+        System.out.println(samsung.getSmart());
+
     }
 }

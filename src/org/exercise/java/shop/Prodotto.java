@@ -68,7 +68,7 @@ public class Prodotto {
     }
 
     public String getNomeEsteso() {
-        String nomeEsteso = Integer.toString(codice) + " - " + nome;
+        String nomeEsteso =  nome + ' ' + prezzo + ", ";
         return nomeEsteso;
     }
 }

@@ -13,6 +13,12 @@ public class Televisore extends Prodotto {
         this.smart = smart;
     }
 
+    public Televisore(String nome, float prezzo, String dimensioni, boolean smart) {
+        super(nome, prezzo);
+        this. dimensioni = dimensioni;
+        this.smart = smart;
+    }
+
     public String getDimensioni() {
         return this.dimensioni;
     }

@@ -15,6 +15,11 @@ public class Smartphone extends Prodotto {
         this.memoria = memoria;
     }
 
+    public Smartphone(String nome, float prezzo, String memoria) {
+        super(nome, prezzo);
+        this.memoria = memoria;
+    }
+
     private String generateImei() {
         Random rand = new Random();
         StringBuilder imeiBuilder = new StringBuilder();

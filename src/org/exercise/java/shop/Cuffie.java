@@ -13,6 +13,11 @@ public class Cuffie extends Prodotto {
         this.wireless = wireless;
     }
 
+    public Cuffie(String nome, float prezzo, boolean wireless) {
+        super(nome, prezzo);
+        this.wireless = wireless;
+    }
+
     public String getColore() {
         return this.colore;
     }

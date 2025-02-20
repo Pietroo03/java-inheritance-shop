@@ -8,6 +8,6 @@ public class Main {
         Cuffie logitech = new Cuffie("Logitech G432", "Cuffie con riduzione del rumore", 125f, "nere e blu", false);
         Televisore samsung = new Televisore("Samsung ultra potente 2k25", "Alta qualità sempre!", 875f, "32 pollici", true);
 
-
+        System.out.println(logitech.getPrezzoBase());
     }
 }

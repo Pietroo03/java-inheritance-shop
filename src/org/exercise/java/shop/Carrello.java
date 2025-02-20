@@ -5,10 +5,7 @@ import java.util.Scanner;
 public class Carrello {
 
     protected Prodotto[] carrelloProdotti;
-    protected Smartphone onePlus = new Smartphone("OnePlus Nord 2", "Telefono ultra potente", 453f, "115 Gb");
-    protected Cuffie logitech = new Cuffie("Logitech G432", "Cuffie con riduzione del rumore", 125f, "nere e blu", false);
-    protected Televisore samsung = new Televisore("Samsung ultra potente 2k25", "Alta qualità sempre!", 875f, "32 pollici", true);
-
+    
     public Carrello() {
         carrelloProdotti = new Prodotto[0];
     }
@@ -16,70 +13,99 @@ public class Carrello {
     public void aggiungiProdotto() {
         Scanner in = new Scanner(System.in);
         String inputInserito;
+        String nomeInserito;
+        float prezzoInserito;
+        String memoriaInserita;
+        boolean isWireless;
+        String dimensioniInserite;
+        boolean isSmart;
 
-        Prodotto[] nuovoCarrelloProdotti = new Prodotto[carrelloProdotti.length + 1];
+        do {
 
-        for (int i = 0; i < carrelloProdotti.length; i++) {
-            nuovoCarrelloProdotti[i] = carrelloProdotti[i];
-        }
+            System.out.print("Inserisci il nome del tuo prodotto: ");
+            inputInserito = in.nextLine();
 
-        carrelloProdotti = nuovoCarrelloProdotti;
+            Prodotto[] nuovoCarrelloProdotti = new Prodotto[carrelloProdotti.length + 1];
 
-        System.out.print("Inserisci il nome del tuo prodotto: ");
-        inputInserito = in.nextLine();
+            for (int i = 0; i < carrelloProdotti.length; i++) {
+                nuovoCarrelloProdotti[i] = carrelloProdotti[i];
+            }
 
-        // cambaire con switch, chiedere il tipo di prodotto, non il titolo
+            carrelloProdotti = nuovoCarrelloProdotti;
 
-        switch (inputInserito.toLowerCase().strip()) {
-            case "oneplus":
-                carrelloProdotti[carrelloProdotti.length - 1] = onePlus;
-                System.out.println("Prodotto aggiunto alla tua lista");
-            break;
+            switch (inputInserito.toLowerCase().strip()) {
+                case "smartphone":
+                    System.out.println("Inserirsci il nome dello smartphone: ");
+                    nomeInserito = in.nextLine();
+                    System.out.println("Inserirsci il prezzo (123,00) dello smartphone: ");
+                    prezzoInserito = in.nextFloat();
+                    in.nextLine();
+                    System.out.println("Inserirsci la memoria dello smartphone: ");
+                    memoriaInserita = in.nextLine();
+                    Smartphone smartphoneCarrello = new Smartphone(nomeInserito, prezzoInserito, memoriaInserita);
+                    carrelloProdotti[carrelloProdotti.length - 1] = smartphoneCarrello;
+                    System.out.println("Smarthphone aggiunto alla tua lista");
+                    break;
 
-            case "logitech":
-            carrelloProdotti[carrelloProdotti.length - 1] = logitech;
-            System.out.println("Prodotto aggiunto alla tua lista");
-            break;
+                case "cuffie":
+                    System.out.println("Inserirsci il nome delle cuffie: ");
+                    nomeInserito = in.nextLine();
+                    System.out.println("Inserirsci il prezzo (123,00) delle cuffie: ");
+                    prezzoInserito = in.nextFloat();
+                    in.nextLine();
+                    System.out.println("Le cuffie sono wireless?(true o false) ");
+                    isWireless = in.nextBoolean();
+                    in.nextLine();
 
-            case "samsung":
-            carrelloProdotti[carrelloProdotti.length - 1] = samsung;
-            System.out.println("Prodotto aggiunto alla tua lista");
-            break;
-        
-            default:
-                System.out.println("Nessun prodotto corrisponde a: " + inputInserito);
-                break;
-        }
+                    Cuffie cuffieCarrello = new Cuffie(nomeInserito, prezzoInserito, isWireless);
+                    carrelloProdotti[carrelloProdotti.length - 1] = cuffieCarrello;
+                    System.out.println("Cuffie aggiunte alla tua lista");
+                    break;
 
+                case "televisore":
+                    System.out.println("Inserirsci il nome del televisore: ");
+                    nomeInserito = in.nextLine();
+                    System.out.println("Inserirsci il prezzo (123,00) del televisore: ");
+                    prezzoInserito = in.nextFloat();
+                    in.nextLine();
+                    System.out.println("Inserisci le dimensioni del televisore in pollici: ");
+                    dimensioniInserite = in.nextLine();
+                    System.out.println("Il televisore è smart?(true o false) ");
+                    isSmart = in.nextBoolean();
+                    in.nextLine();
 
+                    Televisore televisoreCarrello = new Televisore(nomeInserito, prezzoInserito, dimensioniInserite, isSmart);
+                    carrelloProdotti[carrelloProdotti.length - 1] = televisoreCarrello;
+                    System.out.println("Televisore aggiunto alla tua lista");
+                    break;
 
+                default:
+                    System.out.println("Nessun prodotto corrisponde a: " + inputInserito);
+                    break;
+            }
 
-        /* if (inputInserito.strip().toLowerCase().equals("oneplus".strip().toLowerCase())) {
-            carrelloProdotti[carrelloProdotti.length -1] = onePlus;
-            System.out.println("Prodotto aggiunto alla tua lista");
-        } else if (inputInserito.strip().toLowerCase().equals("logitech".strip().toLowerCase())) {
-            carrelloProdotti[carrelloProdotti.length - 1] = logitech;
-        } else if (inputInserito.strip().toLowerCase().equals("samsung".strip().toLowerCase())) {
-            carrelloProdotti[carrelloProdotti.length - 1] = samsung;
-        } else {
-            System.out.println("Nessun prodotto corrisponde a: " + inputInserito);
-        } */
+            System.out.println("Vuoi aggiungere un altro prodotto? (Si o No)");
+            inputInserito = in.nextLine();
+
+        } while (inputInserito.toLowerCase().strip().equals("si"));
 
         in.close();
 
     }
 
     public String getCarrello() {
-
         String risultato = "Prodotti nel carrello: \n";
         float prezzoTotale = 0;
 
-        for(int i = 0; i < carrelloProdotti.length; i++) {
-            risultato += carrelloProdotti[i].getNomeEsteso();
-            prezzoTotale += carrelloProdotti[i].getPrezzoConIva();
+        for (int i = 0; i < carrelloProdotti.length; i++) {
+            if (carrelloProdotti[i] != null) { 
+                risultato += carrelloProdotti[i].getNomeEsteso() + "\n";
+                prezzoTotale += carrelloProdotti[i].getPrezzoConIva();
+            }
         }
 
-        return risultato += "Totale: " + prezzoTotale;
+        risultato += "Totale: " + prezzoTotale;
+        return risultato;
     }
 
     public static void main(String[] args) {

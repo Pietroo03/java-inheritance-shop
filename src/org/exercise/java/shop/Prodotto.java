@@ -18,6 +18,11 @@ public class Prodotto {
         this.prezzo = prezzo;
     }
 
+    public Prodotto(String nome, float prezzo) {
+        this.nome = nome;
+        this.prezzo = prezzo;
+    }
+
     public Prodotto() {
         Random rand = new Random();
         this.codice = rand.nextInt(999999);

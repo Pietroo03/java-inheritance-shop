@@ -18,6 +18,7 @@ public class Smartphone extends Prodotto {
     public Smartphone(String nome, float prezzo, String memoria) {
         super(nome, prezzo);
         this.memoria = memoria;
+        this.codiceImei = generateImei();
     }
 
     private String generateImei() {
@@ -40,5 +41,10 @@ public class Smartphone extends Prodotto {
 
     public void setMemoria(String memoria) {
         this.memoria = memoria;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nCodice IMEI: " + getCodiceImei() + "\nGiga: " + getMemoria();
     }
 }

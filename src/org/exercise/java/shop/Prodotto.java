@@ -19,6 +19,8 @@ public class Prodotto {
     }
 
     public Prodotto(String nome, float prezzo) {
+        Random rand = new Random();
+        this.codice = rand.nextInt(999999);
         this.nome = nome;
         this.prezzo = prezzo;
     }
@@ -72,8 +74,11 @@ public class Prodotto {
         return Math.round(prezzoConIva * 100) / 100.0f;
     }
 
-    public String getNomeEsteso() {
-        String nomeEsteso =  nome + ' ' + prezzo + ", ";
-        return nomeEsteso;
+    @Override
+    public String toString() {
+        if(nome != null) {
+            return codice + " - " + nome;
+        }
+        return null;
     }
 }

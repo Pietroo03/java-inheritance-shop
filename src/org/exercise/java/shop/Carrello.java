@@ -22,7 +22,7 @@ public class Carrello {
 
         do {
 
-            System.out.print("Inserisci il nome del tuo prodotto: ");
+            System.out.print("Inserisci il tipo di prodotto (smartphone, cuffie, televisore): ");
             inputInserito = in.nextLine();
 
             Prodotto[] nuovoCarrelloProdotti = new Prodotto[carrelloProdotti.length + 1];
@@ -35,25 +35,26 @@ public class Carrello {
 
             switch (inputInserito.toLowerCase().strip()) {
                 case "smartphone":
-                    System.out.println("Inserirsci il nome dello smartphone: ");
+                    System.out.print("Inserirsci il nome dello smartphone: ");
                     nomeInserito = in.nextLine();
-                    System.out.println("Inserirsci il prezzo (123,00) dello smartphone: ");
+                    System.out.print("Inserirsci il prezzo (123,00) dello smartphone: ");
                     prezzoInserito = in.nextFloat();
                     in.nextLine();
-                    System.out.println("Inserirsci la memoria dello smartphone: ");
+                    System.out.print("Inserirsci la memoria dello smartphone: ");
                     memoriaInserita = in.nextLine();
+                    
                     Smartphone smartphoneCarrello = new Smartphone(nomeInserito, prezzoInserito, memoriaInserita);
                     carrelloProdotti[carrelloProdotti.length - 1] = smartphoneCarrello;
                     System.out.println("Smarthphone aggiunto alla tua lista");
                     break;
 
                 case "cuffie":
-                    System.out.println("Inserirsci il nome delle cuffie: ");
+                    System.out.print("Inserirsci il nome delle cuffie: ");
                     nomeInserito = in.nextLine();
-                    System.out.println("Inserirsci il prezzo (123,00) delle cuffie: ");
+                    System.out.print("Inserirsci il prezzo (123,00) delle cuffie: ");
                     prezzoInserito = in.nextFloat();
                     in.nextLine();
-                    System.out.println("Le cuffie sono wireless?(true o false) ");
+                    System.out.print("Le cuffie sono wireless?(true o false) ");
                     isWireless = in.nextBoolean();
                     in.nextLine();
 
@@ -63,14 +64,14 @@ public class Carrello {
                     break;
 
                 case "televisore":
-                    System.out.println("Inserirsci il nome del televisore: ");
+                    System.out.print("Inserirsci il nome del televisore: ");
                     nomeInserito = in.nextLine();
-                    System.out.println("Inserirsci il prezzo (123,00) del televisore: ");
+                    System.out.print("Inserirsci il prezzo (123,00) del televisore: ");
                     prezzoInserito = in.nextFloat();
                     in.nextLine();
-                    System.out.println("Inserisci le dimensioni del televisore in pollici: ");
+                    System.out.print("Inserisci le dimensioni del televisore in pollici: ");
                     dimensioniInserite = in.nextLine();
-                    System.out.println("Il televisore è smart?(true o false) ");
+                    System.out.print("Il televisore è smart?(true o false) ");
                     isSmart = in.nextBoolean();
                     in.nextLine();
 
@@ -99,7 +100,7 @@ public class Carrello {
 
         for (int i = 0; i < carrelloProdotti.length; i++) {
             if (carrelloProdotti[i] != null) { 
-                risultato += carrelloProdotti[i].getNomeEsteso() + "\n";
+                risultato += carrelloProdotti[i].toString() + "\n";
                 prezzoTotale += carrelloProdotti[i].getPrezzoConIva();
             }
         }
